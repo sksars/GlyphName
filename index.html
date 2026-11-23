@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlyphName — 1,000+ Stylish Nickname Finder &amp; Unicode Font Studio</title>
+    <meta
+      name="description"
+      content="Create 1,050+ stylish nicknames, gamer tags, and aesthetic social media bio fonts using clean Unicode typography, decorative frames, and platform compatibility checks."
+    />
+    <meta property="og:title" content="GlyphName — 1,000+ Stylish Nickname Finder &amp; Unicode Font Studio" />
+    <meta
+      property="og:description"
+      content="Create 1,050+ stylish nicknames, gamer tags, and aesthetic social media bio fonts using clean Unicode typography, decorative frames, and platform compatibility checks."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GlyphName",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "description": "Free client-side stylish nickname generator and Unicode text formatter for gaming handles and social profiles."
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#generator" class="brand-wordmark" data-route="generator">GlyphName</a>
+
+        <nav class="primary-nav" aria-label="Primary Navigation">
+          <a href="#generator" class="nav-link is-active" data-route="generator">Generator</a>
+          <a href="#symbol-studio" class="nav-link" data-route="generator" data-scroll="symbol-studio">Symbol Studio</a>
+          <a href="#compatibility-guide" class="nav-link" data-route="generator" data-scroll="compatibility-guide">Compatibility Guide</a>
+          <a href="#about" class="nav-link" data-route="about">About</a>
+          <a href="#contact" class="nav-link" data-route="contact">Contact</a>
+        </nav>
+
+        <button type="button" id="open-favorites-btn" class="header-action-btn" aria-label="Open saved nicknames">
+          Saved (<span id="saved-count" class="tabular-nums">0</span>)
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================================================================
+           VIEW 1: MAIN NICKNAME GENERATOR & EDITORIAL GUIDES
+           ================================================================ -->
+      <section id="view-generator" class="page-view is-active" aria-label="Nickname Generator">
+        <div class="container">
+          <!-- Hero & Live Workbench -->
+          <div class="hero-section">
+            <div class="hero-grid">
+              <div class="hero-copy">
+                <span class="hero-kicker">Unicode Typography &amp; Symbol Workshop</span>
+                <h1 class="hero-title">Find a stylish nickname that renders cleanly everywhere.</h1>
+                <p class="hero-subtitle">
+                  Type any name below to preview 1,050 Unicode font and frame combinations, customize clan symbols, and verify platform compatibility before copying to your profile or game lobby.
+                </p>
+
+                <div class="generator-input-card">
+                  <div class="input-row">
+                    <div class="name-input-wrap">
+                      <label for="nickname-input" class="sr-only">Enter your name or nickname</label>
+                      <input
+                        id="nickname-input"
+                        class="name-input"
+                        type="text"
+                        maxlength="42"
+                        value="Aarav"
+                        placeholder="Type your name or gamertag..."
+                        autocomplete="off"
+                      />
+                      <button type="button" id="clear-input-btn" class="clear-input-btn" aria-label="Clear name input" title="Clear input">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                    </div>
+                    <button type="button" id="random-idea-btn" class="btn-primary">
+                      Generate Idea
+                    </button>
+                  </div>
+
+                  <div class="quick-ideas-bar">
+                    <label for="idea-vibe-select">Idea category:</label>
+                    <select id="idea-vibe-select" class="idea-select">
+                      <option value="gaming">Gaming &amp; Esports</option>
+                      <option value="aesthetic">Aesthetic &amp; Soft</option>
+                      <option value="minimal">Minimal &amp; Clean</option>
+                      <option value="royal">Royal &amp; Mythic</option>
+                    </select>
+                    <span aria-hidden="true">&middot;</span>
+                    <span>Instant client-side formatting, no sign-up required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Profile Preview & Compatibility Panel -->
+              <aside class="preview-panel" aria-label="Live Profile Preview">
+                <div class="preview-panel-head">
+                  <h2 class="preview-panel-title">Live Profile Preview</h2>
+                  <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle color theme">
+                    Dark Mode
+                  </button>
+                </div>
+
+                <div class="profile-mockup">
+                  <div class="profile-mockup-row">
+                    <div id="preview-avatar" class="profile-avatar" aria-hidden="true">A</div>
+                    <div>
+                      <div id="preview-name-display" class="profile-name-display">𝐀𝐚𝐫𝐚𝐯</div>
+                      <div class="profile-meta-line">
+                        <span id="preview-style-label">Classic Bold Serif</span>
+                        <span aria-hidden="true">&middot;</span>
+                        <span id="preview-char-count" class="tabular-nums">5 chars</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="compat-summary">
+                  <div class="compat-row">
+                    <span class="compat-label">Social Bios (IG, X, TikTok)</span>
+                    <span id="compat-social" class="compat-val">Full Support</span>
+                  </div>
+                  <div class="compat-row">
+                    <span class="compat-label">Game Lobbies (BGMI, FF, Discord)</span>
+                    <span id="compat-game" class="compat-val">Moderate</span>
+                  </div>
+                  <div class="compat-row">
+                    <span class="compat-label">Accessibility Note</span>
+                    <span id="compat-a11y" class="compat-val">Clean display</span>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <!-- AdSense-Compliant Clearly Labeled Slot 1 -->
+          <div class="ad-slot-wrapper" role="region" aria-label="Advertisement">
+            <span class="ad-label">Advertisement</span>
+            <div class="ad-container-box">
+              <!-- Replace this container with your Google AdSense responsive display <ins class="adsbygoogle"> unit -->
+              <span>Responsive Ad Unit Area (728 &times; 90 Desktop / 320 &times; 100 Mobile)</span>
+            </div>
+          </div>
+
+          <!-- Filter Toolbar & Generated Styles Grid -->
+          <section class="workspace-section" aria-label="Styled Nickname Results">
+            <div class="toolbar-stack">
+              <div class="toolbar-top-row">
+                <div class="segmented-tabs" role="tablist" aria-label="Filter nickname styles">
+                  <button type="button" class="tab-btn is-active" data-category="all" role="tab" aria-selected="true">All Styles</button>
+                  <button type="button" class="tab-btn" data-category="gaming" role="tab" aria-selected="false">Gaming</button>
+                  <button type="button" class="tab-btn" data-category="aesthetic" role="tab" aria-selected="false">Aesthetic</button>
+                  <button type="button" class="tab-btn" data-category="bold" role="tab" aria-selected="false">Bold</button>
+                  <button type="button" class="tab-btn" data-category="minimal" role="tab" aria-selected="false">Minimal</button>
+                  <button type="button" class="tab-btn" data-category="decorated" role="tab" aria-selected="false">Decorated</button>
+                </div>
+
+                <div class="toolbar-right">
+                  <label for="style-search-input" class="sr-only">Search style or frame name</label>
+                  <input
+                    id="style-search-input"
+                    class="style-search-input"
+                    type="search"
+                    placeholder="Filter styles (e.g. crown, gothic, small caps)..."
+                    autocomplete="off"
+                  />
+                  <span class="results-count">
+                    Showing <strong id="visible-count" class="tabular-nums">48</strong> of <strong id="total-filtered-count" class="tabular-nums">1,050</strong>
+                  </span>
+                </div>
+              </div>
+
+              <div class="frame-bar" role="group" aria-label="Decorative frame presets">
+                <span class="frame-bar-label">Frame Mode:</span>
+                <div id="frame-buttons-container" class="frame-bar"></div>
+              </div>
+            </div>
+
+            <div id="styles-grid" class="styles-grid"></div>
+
+            <div id="pagination-bar" class="pagination-bar">
+              <span id="pagination-summary" class="results-count tabular-nums">Showing 48 of 1,050 stylish variations</span>
+              <div class="pagination-actions">
+                <button type="button" id="load-more-btn" class="btn-secondary">Load 48 More</button>
+                <button type="button" id="show-all-btn" class="btn-primary" style="min-height: 42px;">Show All Matching</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Customizer & Symbol Studio -->
+          <section id="symbol-studio" class="studio-section" aria-labelledby="studio-heading">
+            <div class="section-header">
+              <h2 id="studio-heading" class="section-title">Custom Nickname &amp; Symbol Studio</h2>
+              <p>
+                Fine-tune any generated name by adding clan marks, brackets, or separators on either side. Click a symbol to append it, or move any card directly into the editor.
+              </p>
+            </div>
+
+            <div class="studio-grid">
+              <div class="studio-panel">
+                <label for="customizer-input" class="symbol-group-label">Custom Nickname Editor</label>
+                <input
+                  id="customizer-input"
+                  class="customizer-output-box"
+                  type="text"
+                  maxlength="64"
+                  value="『ᴀᴀʀᴀᴠ』"
+                  placeholder="Build or edit your custom nickname..."
+                />
+                <div class="customizer-controls">
+                  <button type="button" id="copy-custom-btn" class="btn-primary">Copy Custom Name</button>
+                  <button type="button" id="save-custom-btn" class="btn-secondary">Save to Favorites</button>
+                  <button type="button" id="clear-custom-btn" class="btn-secondary">Reset</button>
+                </div>
+                <p id="customizer-meta" class="profile-meta-line tabular-nums">
+                  Length: 7 characters &middot; Ready to copy
+                </p>
+              </div>
+
+              <div class="studio-panel">
+                <div class="customizer-controls" style="justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span class="symbol-group-label" style="margin-bottom: 0;">Click to insert symbol:</span>
+                  <div class="segmented-tabs" role="group" aria-label="Symbol insertion position">
+                    <button type="button" id="insert-pos-end" class="tab-btn is-active" data-pos="end">Append End</button>
+                    <button type="button" id="insert-pos-wrap" class="tab-btn" data-pos="wrap">Wrap Both Sides</button>
+                  </div>
+                </div>
+                <div id="symbol-groups-container"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- AdSense-Compliant Clearly Labeled Slot 2 -->
+          <div class="ad-slot-wrapper" role="region" aria-label="Advertisement">
+            <span class="ad-label">Advertisement</span>
+            <div class="ad-container-box">
+              <!-- Replace this container with your Google AdSense in-article <ins class="adsbygoogle"> unit -->
+              <span>In-Article Responsive Ad Unit Area</span>
+            </div>
+          </div>
+
+          <!-- High-Value Original Editorial Content & Compatibility Reference (AdSense Quality Standards) -->
+          <section id="compatibility-guide" class="editorial-section" aria-labelledby="guide-heading">
+            <div class="section-header">
+              <h2 id="guide-heading" class="section-title">Unicode Nickname &amp; Platform Compatibility Guide</h2>
+              <p>
+                Stylish nicknames are not custom web fonts—they are standard Unicode characters drawn from mathematical, phonetic, and historic script blocks. Understanding how platforms parse these blocks helps prevent missing boxes or rejected names.
+              </p>
+            </div>
+
+            <div class="editorial-grid">
+              <article class="editorial-card">
+                <span class="editorial-index">01. Technical Foundation</span>
+                <h3>How Unicode Font Styles Work</h3>
+                <p>
+                  When you copy a styled name like <strong>𝐀𝐚𝐫𝐚𝐯</strong> or <strong>ᴀᴀʀᴀᴠ</strong>, you are copying distinct codepoints defined by the Unicode Consortium (such as Mathematical Alphanumeric Symbols U+1D400–U+1D7FF and Phonetic Extensions). Because these are characters rather than CSS styling, they remain styled when pasted into bios, chats, and game profiles.
+                </p>
+              </article>
+
+              <article class="editorial-card">
+                <span class="editorial-index">02. Display Reliability</span>
+                <h3>Avoiding Missing Glyph Boxes</h3>
+                <p>
+                  Older Android devices and strict in-game chat engines sometimes lack font coverage for newer astral-plane blocks like Solid Keycaps or Script letters, displaying empty boxes (tofu). For maximum reliability across gaming lobbies, prefer Small Caps, Fullwidth, or simple bracket frames like 『 』 and メ.
+                </p>
+              </article>
+
+              <article class="editorial-card">
+                <span class="editorial-index">03. Accessibility &amp; Search</h3>
+                <h3>Balancing Style with Readability</h3>
+                <p>
+                  Screen readers often skip or verbally spell out mathematical Unicode characters, and platform search bars index ASCII letters separately from stylized variants. A strong best practice is keeping your searchable username in plain text while placing your stylized nickname in your Display Name or Bio line.
+                </p>
+              </article>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Platform</th>
+                    <th>Display Name Support</th>
+                    <th>Username / Handle</th>
+                    <th>Recommended Styles</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Instagram &amp; TikTok</strong></td>
+                    <td>Full Unicode &amp; Symbols</td>
+                    <td>ASCII letters, numbers, underscores, periods</td>
+                    <td>Royal Calligraphy, Editorial Italic, Celestial Ribbon</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Discord</strong></td>
+                    <td>Full Unicode &amp; Symbols</td>
+                    <td>Lowercase alphanumeric, periods, underscores</td>
+                    <td>Bold Sans, Double-Struck, Pro Bracket Tag</td>
+                  </tr>
+                  <tr>
+                    <td><strong>BGMI &amp; Free Fire</strong></td>
+                    <td>Most symbols &amp; Latin extensions</td>
+                    <td>12–14 character limit in many lobbies</td>
+                    <td>Royal Wing Frame, Katana Cross, Editorial Small Caps</td>
+                  </tr>
+                  <tr>
+                    <td><strong>YouTube &amp; X (Twitter)</strong></td>
+                    <td>Full Unicode &amp; Symbols</td>
+                    <td>@handle restricted to standard ASCII</td>
+                    <td>Classic Bold Serif, Typewriter Mono, Airy Small Caps</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Valorant &amp; Riot ID</strong></td>
+                    <td>Latin &amp; limited regional accents</td>
+                    <td>Game Name + #Tagline (3–16 chars)</td>
+                    <td>Spaced Minimal, Esports Signature, Hellenic Hybrid</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="section-header" style="margin-top: 40px;">
+              <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-list" id="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Why do some games reject certain fancy fonts?</span>
+                  <span aria-hidden="true">−</span>
+                </button>
+                <div class="faq-answer">
+                  Competitive games often restrict high-plane Unicode blocks (such as Mathematical Bold or Fraktur) in player IDs to prevent spoofing and unreadable kill-feed overlays. If a game rejects a style, switch to Editorial Small Caps, Fullwidth, or clean brackets like 『Name』, which use widely whitelisted blocks.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Does GlyphName store the nicknames I type?</span>
+                  <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  No. All text transformations run locally inside your browser using JavaScript. Saved favorites and theme preferences are stored solely in your own browser's localStorage and are never transmitted to an external server.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Are these stylized nicknames safe to use on social media?</span>
+                  <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  Yes. Unicode characters are part of the official international text standard and are completely safe to copy into bios, captions, and display names. However, keep your login handle in plain letters so friends can still tag and search your account easily.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>How do I create a clan tag with matching symbols?</span>
+                  <span aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  Use the Frame Mode strip above the results grid to swap frames across every font, browse all 1,050 built-in font and frame combinations, or open the Custom Nickname &amp; Symbol Studio to combine clan marks like メ, 亗, or ❖ with any text style.
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 2: ABOUT US (ADSENSE TRUST PAGE)
+           ================================================================ -->
+      <section id="view-about" class="page-view" aria-label="About GlyphName">
+        <div class="container">
+          <article class="prose-article">
+            <h1>About GlyphName</h1>
+            <div class="prose-meta">Editorial Utility &amp; Unicode Typography Reference</div>
+            <p>
+              GlyphName is an independent web utility built to help gamers, creators, and writers format clean, readable nicknames and social profile typography using standard Unicode characters.
+            </p>
+            <h2>Our Purpose</h2>
+            <p>
+              Many font generator sites overwhelm visitors with intrusive pop-ups, broken symbol spam, or unreadable character combinations that break inside mobile games and social apps. GlyphName focuses on clarity: every style is curated for legibility, accompanied by character count metrics and honest platform compatibility guidance.
+            </p>
+            <h2>Privacy-First Architecture</h2>
+            <ul>
+              <li>All character mapping runs 100% client-side in your browser with zero server-side logging of your typed names.</li>
+              <li>Your saved favorites remain strictly in your local browser storage.</li>
+              <li>No account registration, password, or personal profile data is required to use any tool on this site.</li>
+            </ul>
+            <p style="margin-top: 24px;">
+              <button type="button" class="btn-primary" data-route="generator">Back to Nickname Generator</button>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 3: PRIVACY POLICY (ADSENSE MANDATORY PAGE)
+           ================================================================ -->
+      <section id="view-privacy" class="page-view" aria-label="Privacy Policy">
+        <div class="container">
+          <article class="prose-article">
+            <h1>Privacy Policy</h1>
+            <div class="prose-meta">Last Updated: November 2026 &middot; GlyphName</div>
+            <p>
+              At GlyphName, visitor privacy is treated with care. This Privacy Policy explains what information is collected when you visit our website, how local storage and cookies operate, and how third-party advertising partners such as Google AdSense may process data.
+            </p>
+
+            <h2>1. Local Processing &amp; Browser Storage</h2>
+            <p>
+              Nicknames and text you enter into the generator are processed exclusively in your web browser. We do not collect, transmit, or store your generated nicknames on remote servers. When you save favorites or change your light/dark theme, those preferences are saved locally in your browser's <code>localStorage</code> and can be cleared at any time.
+            </p>
+
+            <h2>2. Cookies &amp; Google AdSense Advertising</h2>
+            <p>
+              Third-party vendors, including Google, use cookies to serve advertisements based on a user's prior visits to this website or other websites on the internet.
+            </p>
+            <ul>
+              <li>Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the internet.</li>
+              <li>Users may opt out of personalized advertising by visiting Google Ads Settings (<code>adssettings.google.com</code>).</li>
+              <li>Alternatively, users can opt out of third-party vendor cookie usage for personalized advertising by visiting <code>www.aboutads.info/choices</code>.</li>
+            </ul>
+
+            <h2>3. Consent &amp; Regional Privacy Rights (GDPR / CCPA)</h2>
+            <p>
+              Where required by law (including the European Economic Area, UK, and California), visitors are presented with a cookie consent notice allowing them to accept or restrict non-essential cookies before personalized advertising scripts load. You may update your cookie preference at any time using the "Cookie Preferences" link in the footer.
+            </p>
+
+            <h2>4. Contact Information &amp; Children's Privacy</h2>
+            <p>
+              GlyphName does not knowingly collect personally identifiable information from children under the age of 13. If you have questions about this Privacy Policy, please reach us via the Contact page.
+            </p>
+
+            <p style="margin-top: 24px;">
+              <button type="button" class="btn-secondary" data-route="generator">Return to Generator</button>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 4: TERMS OF SERVICE & DISCLAIMER (ADSENSE TRUST PAGE)
+           ================================================================ -->
+      <section id="view-terms" class="page-view" aria-label="Terms of Service">
+        <div class="container">
+          <article class="prose-article">
+            <h1>Terms of Service &amp; Disclaimer</h1>
+            <div class="prose-meta">Effective Date: November 2026 &middot; GlyphName</div>
+            <p>
+              By accessing and using GlyphName, you agree to comply with the following terms and conditions.
+            </p>
+
+            <h2>1. Acceptable Use</h2>
+            <p>
+              GlyphName provides Unicode text formatting and symbol combination tools for lawful personal, creative, and branding purposes. Users agree not to use generated text to impersonate others, bypass platform moderation filters for abusive speech, or violate the terms of any third-party gaming or social platform.
+            </p>
+
+            <h2>2. Unicode Rendering &amp; Platform Affiliation Disclaimer</h2>
+            <p>
+              Display of Unicode characters depends on the operating system, browser, and target platform's installed fonts. GlyphName makes no guarantee that every symbol will be accepted by every game or social network. All third-party product names mentioned in our compatibility guide (such as Instagram, Discord, TikTok, BGMI, Free Fire, and Valorant) are trademarks of their respective owners; GlyphName is an independent utility and is not affiliated with or endorsed by them.
+            </p>
+
+            <h2>3. Limitation of Liability</h2>
+            <p>
+              This service is provided on an "as-is" and "as-available" basis without warranties of any kind. GlyphName shall not be liable for any account restrictions, lost data, or display incompatibilities arising from the use of formatted text on external platforms.
+            </p>
+
+            <p style="margin-top: 24px;">
+              <button type="button" class="btn-secondary" data-route="generator">Return to Generator</button>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 5: CONTACT US (ADSENSE MANDATORY PAGE)
+           ================================================================ -->
+      <section id="view-contact" class="page-view" aria-label="Contact Us">
+        <div class="container">
+          <article class="prose-article">
+            <h1>Contact Us</h1>
+            <div class="prose-meta">Questions, Symbol Requests &amp; Policy Inquiries</div>
+            <p>
+              Have feedback on a font mapping, spotted a broken symbol on your device, or need to reach us regarding privacy or advertising compliance? Send a message below or email us directly at <strong>support@glyphname.example</strong>.
+            </p>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-field">
+                <label for="contact-name">Your Name</label>
+                <input id="contact-name" type="text" required placeholder="Enter your name" />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-email">Email Address</label>
+                <input id="contact-email" type="email" required placeholder="you@example.com" />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-topic">Subject</label>
+                <select id="contact-topic">
+                  <option value="feedback">Tool Feedback or Symbol Request</option>
+                  <option value="compatibility">Platform Compatibility Report</option>
+                  <option value="privacy">Privacy / AdSense Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" rows="4" required placeholder="How can we help?"></textarea>
+              </div>
+
+              <div id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+
+              <div>
+                <button type="submit" class="btn-primary">Send Message</button>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Quiet Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-brand-name">GlyphName</div>
+            <p class="footer-desc">
+              A fast, client-side Unicode nickname finder and symbol studio built with clean typography, honest compatibility guidance, and transparent privacy practices.
+            </p>
+          </div>
+
+          <div class="footer-links-group">
+            <div class="footer-col">
+              <h4>Tools &amp; Guides</h4>
+              <ul>
+                <li><a href="#generator" data-route="generator">Nickname Generator</a></li>
+                <li><a href="#symbol-studio" data-route="generator" data-scroll="symbol-studio">Symbol Studio</a></li>
+                <li><a href="#compatibility-guide" data-route="generator" data-scroll="compatibility-guide">Compatibility Guide</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4>Trust &amp; Policies</h4>
+              <ul>
+                <li><a href="#about" data-route="about">About Us</a></li>
+                <li><a href="#privacy" data-route="privacy">Privacy Policy</a></li>
+                <li><a href="#terms" data-route="terms">Terms &amp; Disclaimer</a></li>
+                <li><a href="#contact" data-route="contact">Contact Us</a></li>
+                <li><button type="button" id="open-cookie-settings-btn">Cookie Preferences</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; 2026 GlyphName. All rights reserved.</span>
+          <span>100% Client-Side Unicode Formatter &middot; No Account Required</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Saved Favorites Drawer -->
+    <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+    <aside id="favorites-drawer" class="favorites-drawer" aria-label="Saved Nicknames" aria-hidden="true">
+      <div class="drawer-head">
+        <h2 style="font-size: 1.125rem; margin: 0;">Saved Nicknames</h2>
+        <button type="button" id="close-favorites-btn" class="icon-btn" aria-label="Close saved nicknames">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="favorites-list" class="drawer-body"></div>
+      <div class="drawer-foot">
+        <button type="button" id="copy-all-favorites-btn" class="btn-primary" style="flex: 1; min-height: 42px;">Copy All</button>
+        <button type="button" id="clear-favorites-btn" class="btn-secondary">Clear All</button>
+      </div>
+    </aside>
+
+    <!-- Non-Intrusive Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie Consent">
+      <p class="cookie-text">
+        We use local browser storage for saved names and cookies to support standard advertising preferences.
+        <a href="#privacy" data-route="privacy" style="text-decoration: underline; color: var(--accent);">Read Privacy Policy</a>
+      </p>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-essential-btn" class="btn-secondary cookie-btn">Essential Only</button>
+        <button type="button" id="cookie-accept-btn" class="btn-primary cookie-btn" style="min-height: 36px;">Accept All</button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

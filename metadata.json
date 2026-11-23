@@ -1,0 +1,6 @@
+{
+  "name": "GlyphName — Stylish Nickname Finder",
+  "description": "AdSense-compliant stylish nickname generator, Unicode font studio, and decorative symbol combiner for gaming tags and social bios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

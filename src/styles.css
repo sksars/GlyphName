@@ -713,19 +713,19 @@ button {
    ========================================================================== */
 .styles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  gap: 10px;
 }
 
 .style-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-md);
-  padding: 18px 20px;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 14px;
+  gap: 6px;
   box-shadow: var(--shadow-card);
   transition: border-color 160ms var(--ease-out), transform 160ms var(--ease-out);
 }
@@ -738,31 +738,34 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  font-size: 0.8125rem;
+  gap: 8px;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 
 .style-card-title {
   font-weight: 600;
   color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .style-output {
-  font-size: 1.25rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.3;
   word-break: break-word;
-  min-height: 1.75rem;
+  min-height: 1.4rem;
 }
 
 .style-card-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding-top: 12px;
+  gap: 8px;
+  padding-top: 8px;
   border-top: 1px solid var(--border-hairline);
 }
 
@@ -777,14 +780,14 @@ button {
 .action-btn-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
 .icon-btn {
-  min-width: 40px;
-  min-height: 40px;
-  padding: 8px;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 6px;
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-sm);
   background-color: var(--bg-surface);
@@ -807,13 +810,13 @@ button {
 }
 
 .copy-btn {
-  min-height: 40px;
-  padding: 8px 16px;
+  min-height: 34px;
+  padding: 5px 12px;
   border: none;
   border-radius: var(--radius-sm);
   background-color: var(--bg-subtle);
   color: var(--text-primary);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   white-space: nowrap;
   transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
@@ -1180,18 +1183,18 @@ button {
 }
 
 .saved-item {
-  padding: 14px;
+  padding: 10px 12px;
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-sm);
   background-color: var(--bg-canvas);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 
 .saved-item-text {
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   word-break: break-word;
 }
